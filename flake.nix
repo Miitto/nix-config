@@ -16,6 +16,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-gaming.url = "github:fufexan/nix-gaming/4199abcbc86b52e6878d1021da61c4e8e308e00e";
+    niri-scratchpad-flake = {
+      url = "github:gvolpe/niri-scratchpad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    youtube-music = {
+      url = "github:h-banii/youtube-music-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
@@ -26,6 +34,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./system.nix
+        ./niri.nix
         ./gaming.nix
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

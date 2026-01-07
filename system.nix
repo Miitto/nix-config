@@ -97,17 +97,6 @@
     corefonts # ms-corefonts
     zip
     unzip
-    polkit
-# Niri stuff
-    niri
-    wezterm
-    swaylock
-    mako
-    swayidle
-    quickshell
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    xwayland-satellite
 # Dev
     cmake
     llvmPackages_latest.lldb
