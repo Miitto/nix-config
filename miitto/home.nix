@@ -20,9 +20,39 @@
     discord
     kdePackages.dolphin
     lazygit
+    starship
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    initExtra = ''
+      eval "$(starship init zsh)"
+
+      nix() {
+        if [[ $1 == "develop" ]]; then
+          shift
+          command nix develop -c $SHELL "$@"
+        else
+          command nix "$@"
+        fi
+      }
+    '';
+
+    shellAliases = {
+      ll = "ls -l";
+      edit = "sudo -e";
+      update = "sudo nixos-rebuild switch --flake ~/.config/nix";
+      nix-shell="nix-shell --run $SHELL";
+    };
+
+    history.size = 10000;
+    history.ignoreAllDups = true;
+    history.path = "$HOME/.zsh_history";
+    history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+  };
 
   home.sessionVariables = {
     "EDITOR" = "nvim";

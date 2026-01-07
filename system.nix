@@ -84,6 +84,9 @@
     ];
   };
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
 # Core
@@ -92,8 +95,10 @@
     corefonts # ms-corefonts
     zip
     unzip
+    playerctl
 # Dev
     cmake
+    ninja
     llvmPackages_latest.lldb
     gdb
     clang-tools
