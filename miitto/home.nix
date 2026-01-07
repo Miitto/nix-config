@@ -17,8 +17,6 @@
   };
 
   home.packages = with pkgs; [
-    discord
-    kdePackages.dolphin
     lazygit
     starship
   ];
@@ -28,24 +26,14 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
+    initContent = ''
       eval "$(starship init zsh)"
-
-      nix() {
-        if [[ $1 == "develop" ]]; then
-          shift
-          command nix develop -c $SHELL "$@"
-        else
-          command nix "$@"
-        fi
-      }
     '';
 
     shellAliases = {
       ll = "ls -l";
       edit = "sudo -e";
       update = "sudo nixos-rebuild switch --flake ~/.config/nix";
-      nix-shell="nix-shell --run $SHELL";
     };
 
     history.size = 10000;
