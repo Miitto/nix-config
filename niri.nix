@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./ly.nix;
+    ./sddm.nix
   ];
 
   programs.niri.enable = true;

@@ -23,11 +23,6 @@
   networking.hostName = "miitto"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "miitto";
-  };
-
   nix.gc = {
     automatic = true;
     dates = "weekly";

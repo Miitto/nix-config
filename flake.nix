@@ -40,6 +40,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.miitto = ./miitto/home.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
         }
         ./noctalia.nix
         ./miitto
