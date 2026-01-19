@@ -97,6 +97,7 @@
     zip
     unzip
     playerctl
+    efibootmgr
 # Dev
     cmake
     ninja

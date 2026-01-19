@@ -34,12 +34,20 @@
       ll = "ls -l";
       edit = "sudo -e";
       update = "sudo nixos-rebuild switch --flake ~/.config/nix";
+      ns = "nix-shell --run zsh";
+      nsp = "nix-shell --pure";
+      gowindows = ''efibootmgr | grep "Windows Boot Manager" | sed -r 's/^Boot([[:digit:]]{4}).*/\1/' | xargs sudo efibootmgr --bootnext && systemctl reboot'';
     };
 
     history.size = 10000;
     history.ignoreAllDups = true;
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+  };
+
+  home.file = {
+    ".local/share/icons/Twilight-cursors/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/miitto/Twilight-cursors";
+    ".local/share/icons/default/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/miitto/Twilight-cursors";
   };
 
   home.sessionVariables = {
