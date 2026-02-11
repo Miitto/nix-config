@@ -60,7 +60,8 @@
     # misc
     "QT_WAYLAND_DISABLE_WINDOWDECORATION" = "1";
     "QT_QPA_PLATFORM" = "wayland";
-    "SDL_VIDEODRIVER" = "wayland";
+    # Broke THE FINALS, 9.8.1, so huh
+    # "SDL_VIDEODRIVER" = "wayland";
     "GDK_BACKEND" = "wayland";
     "XDG_SESSION_TYPE" = "wayland";
   };
