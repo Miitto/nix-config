@@ -92,6 +92,7 @@
 # Core
     wget
     git
+    git-lfs
     gh
     corefonts # ms-corefonts
     zip
